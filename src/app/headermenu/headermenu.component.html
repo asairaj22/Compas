@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-bar-header-bg navbar-height">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white nav-logo">COMPAS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="showHead">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-header-color-a">
+                <li class="nav-item dropdown" *ngFor="let navbarItem of navbarItems;">
+                    <a class="nav-link" href="#" *ngIf="!navbarItem.dropdown">{{navbarItem.title}}</a>
+                    <ng-container *ngIf="navbarItem.dropdown && navbarItem.dropdown.length > 0">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            {{navbarItem.title}}
+                        </a>
+                        <ul class="dropdown-menu nav-bar-header-bg" aria-labelledby="navbarDropdown">
+                            <li class="nav-drop-header-subheader" *ngFor="let dropdownHeader of navbarItem.dropdown;">
+                                <h6 class="dropdown-header pb-0">{{dropdownHeader.header}}</h6>
+                                <ng-container *ngFor="let subHeader of dropdownHeader.subHeader;">
+                                    <a class="dropdown-item" href="#">{{subHeader.name}}</a>
+                                </ng-container>
+                            </li>
+                        </ul>
+                    </ng-container>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link text-white">
+                            <i class="fa fa-search nav-right-icon-bg"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white">
+                            <i class="fa fa-question nav-right-icon-bg"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white">
+                            <i class="fa fa-cog nav-right-icon-bg"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="assets\user-icon.png" width="30" height="30" class="rounded-circle">
+                            </a>
+                            <ul class="dropdown-menu nav-bar-header-bg nav-drop-header-subheader nav-user-dropdown"
+                                aria-labelledby="navbarDropdown">
+                                <li class="nav-drop-header-subheader">
+                                    <a class="dropdown-item">View Profile</a>
+                                </li>
+                                <li class="nav-drop-header-subheader">
+                                    <a class="dropdown-item" routerLink="login">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

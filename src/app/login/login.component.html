@@ -1,0 +1,25 @@
+<div class="login-component">
+    <div class="login-component-padd">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto p-5 container-login-width">
+                    <img src="assets\login-logo.png" class="logo-img w-50">
+                    <p class="mt-5 login-text">Login</p>
+                    <form [formGroup]="loginForm" (ngSubmit)="onLoginUser()">
+                        <div class="form-group login-form-input">
+                            <label>Username</label>
+                            <input type="email" class="form-control" formControlName="username">
+                        </div>
+                        <div class="form-group login-form-input mt-4">
+                            <label>Password</label>
+                            <input type="password" class="form-control"formControlName="password">
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary login-btn">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
